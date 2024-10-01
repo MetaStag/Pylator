@@ -1,9 +1,9 @@
-import tkinter as tk
-from tkinter import PhotoImage
-import sympy
-from math import sqrt, radians, degrees, sin, cos, tan, atan
-import numpy as np
-import matplotlib.pyplot as plt
+import tkinter as tk # GUI library
+from tkinter import PhotoImage # Display images
+import sympy # Calculate equations
+from math import sqrt, radians, degrees, sin, cos, tan, atan # Common math functions
+import numpy as np # Display graph
+import matplotlib.pyplot as plt # Display graph
 
 class MyApp:
     def __init__(self, root):
@@ -27,7 +27,7 @@ class MyApp:
         self.result_label = tk.Label()
 
         # Logo
-        logo = PhotoImage(file='logo.png')
+        logo = PhotoImage(file='assets/logo.png')
         
         image_label = tk.Label(self.left_sidebar, image=logo, bg="#1D1B1B")
         image_label.image = logo
@@ -58,14 +58,14 @@ class MyApp:
         if value == '=':
             try:
                 result = eval(current_entry)
-                self.entry.delete(0, tk.END)
-                self.entry.insert(tk.END, str(result))
+                self.entry.delete(0, tk.END) # clear output field
+                self.entry.insert(tk.END, str(result)) # display output
             except Exception as e:
                 self.entry.delete(0, tk.END)
-                self.entry.insert(tk.END, "Error")
-        elif value == 'C':
+                self.entry.insert(tk.END, "Error") # display Error
+        elif value == 'C': # clear output field
             self.entry.delete(0, tk.END)
-        elif value == 'DEL':
+        elif value == 'DEL': # remove last input
             current_entry = current_entry[:-1]
             self.entry.delete(0,tk.END)
             self.entry.insert(tk.END,current_entry)
@@ -294,7 +294,7 @@ class MyApp:
                     row_val += 1
 
         elif button == self.quadratic_button:
-            qe = PhotoImage(file='qe.png')
+            qe = PhotoImage(file='assets/qe.png')
             qe_label = tk.Label(self.main_content, image=qe,bg='#1B1A15')
             qe_label.image = qe
             qe_label.pack()
@@ -372,7 +372,7 @@ class MyApp:
             solve_button.grid(row=2, column=0, columnspan=4, pady=10)
 
         elif button == self.electric_button:
-            circuit = PhotoImage(file='circuit.png')
+            circuit = PhotoImage(file='assets/circuit.png')
             circuit_label = tk.Label(self.main_content, image=circuit,bg='#1B1A15')
             circuit_label.image = circuit
             circuit_label.pack()
@@ -402,7 +402,7 @@ class MyApp:
             submit_button.pack(side=tk.TOP)
 
         elif button == self.triangle_button:
-            triangle = PhotoImage(file='triangle.png')
+            triangle = PhotoImage(file='assets/triangle.png')
             triangle_label = tk.Label(self.main_content, image=triangle,bg='#1B1A15')
             triangle_label.image = triangle
             triangle_label.pack()
@@ -433,7 +433,7 @@ class MyApp:
             submit_button.pack(side=tk.TOP)
 
         elif button == self.marathon_button:
-            marathon = PhotoImage(file='marathon.png')
+            marathon = PhotoImage(file='assets/marathon.png')
             marathon_label = tk.Label(self.main_content, image=marathon,bg='#1B1A15')
             marathon_label.image = marathon
             marathon_label.pack()
