@@ -8,7 +8,7 @@ It aims to provide a sleek ui/ux while being as practical as possible.
 
 ---
 ### Screenshot
-<img src="screenshot.png" width="600" alt="Screenshot">
+<img src="assets/screenshot.png" width="600" alt="Screenshot">
 
 ---
 ### Features
@@ -18,3 +18,13 @@ It aims to provide a sleek ui/ux while being as practical as possible.
 - Electric Circuit solver (computes V,I,R,P and V/I graph)
 - Sides of Triangle solver
 - Marathon problem solver (Angle of depression)
+
+---
+
+### Contribution
+- Fork this repo
+- Clone from your terminal
+- Install these libraries from pip - tkinter, sympy, numpy, matplotlib
+- Make your changes
+- Push with a proper commit name
+- Make a Pull Request
