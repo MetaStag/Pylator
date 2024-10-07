@@ -24,7 +24,7 @@ It aims to provide a sleek ui/ux while being as practical as possible.
 ### Contribution
 - Fork this repo
 - Clone from your terminal
-- Install these libraries from pip - tkinter, sympy, numpy, matplotlib
+- Install these libraries from pip - tkinter, sympy, numpy, matplotlib, tkhtmlview
 - Make your changes
 - Push with a proper commit name
 - Make a Pull Request
