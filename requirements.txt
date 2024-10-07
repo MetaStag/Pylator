@@ -117,3 +117,4 @@ webencodings==0.5.1
 wsproto==1.2.0
 xdg==5
 zipp==1.0.0
+tkhtmlview==0.3.1

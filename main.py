@@ -4,6 +4,7 @@ import sympy # Calculate equations
 from math import sqrt, radians, degrees, sin, cos, tan, atan # Common math functions
 import numpy as np # Display graph
 import matplotlib.pyplot as plt # Display graph
+from tkhtmlview import HTMLLabel
 
 class MyApp:
     def __init__(self, root):
@@ -51,6 +52,13 @@ class MyApp:
 
         line2 = tk.Canvas(self.left_sidebar, height=2, bg="white", highlightthickness=0, width=self.calculator_button.winfo_reqwidth())
         line2.pack(pady=2)
+
+        #Add Help Button
+        self.help_button=tk.Button(self.left_sidebar, text="Help", command=self.on_help_mode, bg="#1D1B1B", fg="#DBD5A1", font=('Inter', 14), relief=tk.FLAT, borderwidth=0, highlightthickness=0)
+        self.help_button.pack(pady=10)
+
+        line3 = tk.Canvas(self.left_sidebar, height=2, bg="white", highlightthickness=0, width=self.calculator_button.winfo_reqwidth())
+        line3.pack(pady=2)
 
     def calculator(self, value):
         current_entry = self.entry.get()
@@ -209,6 +217,8 @@ class MyApp:
         self.result_label.pack(side=tk.BOTTOM, pady=(10,200))
         
     def on_calculator_mode(self):
+        self.show_top_frame()
+
         self.calculator_button.configure(bg='#D2CE61', fg='black', padx=10, pady=2)
         self.current_mode.configure(bg='#1D1B1B',fg='#DBD5A1')
         self.current_mode = self.calculator_button
@@ -234,6 +244,8 @@ class MyApp:
         self.bmi_button.pack(side=tk.LEFT, padx=10, pady=10)
 
     def on_learner_mode(self):
+        self.show_top_frame()
+
         self.learner_button.configure(bg='#D2CE61', fg='black', padx=10, pady=2)
         self.current_mode.configure(bg='#1D1B1B',fg='#DBD5A1')
         self.current_mode = self.learner_button
@@ -462,6 +474,37 @@ class MyApp:
 
             submit_button = tk.Button(self.main_content, text="Submit", command=self.calculate_marathon, font=('Inter', 14), bg='#D2CE61', fg='black', width=10, pady=7)
             submit_button.pack(side=tk.TOP)
+
+            
+    def on_help_mode(self):
+        # Configure the help button appearance
+        self.help_button.configure(bg='#D2CE61', fg='black', padx=10, pady=2)
+        self.current_mode.configure(bg='#1D1B1B', fg='#DBD5A1')
+        self.current_mode = self.help_button
+
+        self.top_frame.pack_forget()
+
+        # Destroy all widgets in top_frame and main_content
+        for widget in self.main_content.winfo_children():
+            widget.destroy()
+        
+        # Read and display the help.html content
+        with open("assets/help.html", "r", encoding="utf-8") as file:
+            html_content = file.read()
+
+        # Create and pack the HTMLLabel for displaying the help content
+        html_label = HTMLLabel(self.main_content, html=html_content)
+        html_label.pack(fill="both", expand=True, padx=0, pady=0)  # Ensure no padding is applied
+        html_label.configure(bg='#1b1a15')  # Set background color
+
+    def hide_top_frame(self):
+        self.top_frame.pack_forget()
+
+    def show_top_frame(self):
+        self.main_content.pack_forget()
+        self.top_frame.pack(side=tk.TOP, fill=tk.X)
+        self.main_content.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
+    
 
 if __name__ == "__main__":
     root = tk.Tk()
