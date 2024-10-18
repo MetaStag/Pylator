@@ -60,6 +60,11 @@ class MyApp:
         line3 = tk.Canvas(self.left_sidebar, height=2, bg="white", highlightthickness=0, width=self.calculator_button.winfo_reqwidth())
         line3.pack(pady=2)
 
+        #Close calc button
+        self.help_button=tk.Button(self.left_sidebar, text="Close", command=self.root.destroy, bg="#1D1B1B", fg="#DBD5A1", font=('Inter', 14), relief=tk.FLAT, borderwidth=0, highlightthickness=0)
+        self.help_button.pack(pady=10)
+
+
     def calculator(self, value):
         current_entry = self.entry.get()
 
