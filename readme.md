@@ -28,3 +28,19 @@ It aims to provide a sleek ui/ux while being as practical as possible.
 - Make your changes
 - Push with a proper commit name
 - Make a Pull Request
+
+```
+git clone <repository name>
+To create virtual environment
+py -m venv .venv
+
+This will create a .venv folder.
+navigate to .venv/Scripts
+
+activate the venv (Virtual Environment)
+
+Now install dependencies.
+
+pip install -r requirements.txt
+
+```
