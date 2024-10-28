@@ -95,7 +95,7 @@ class MyApp:
         c = float(self.c_entry.get())
 
         # Calculate the quadratic formula
-        discriminant = b**2 - 4*a*c
+        discriminant = (b**2) - (4*a*c)
 
         if discriminant < 0:
             result = "No real roots (complex roots)"
@@ -108,6 +108,7 @@ class MyApp:
             result = f"Real roots: {round(root1, 2)}, {round(root2, 2)}"
         
         self.result_label.destroy() 
+        # the label shall now contain the calculated result
         self.result_label = tk.Label(self.main_content, text=result, bg="#D2CE61", fg='black', pady=10, padx=10, font=('Inter', 14))
         self.result_label.pack(side=tk.BOTTOM, pady=(10,200))
 
